@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recharge card Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="mx-0 md:mx-10 mt-5 bg-gray-100 relative">
+      <p class="text-center font-bold text-xl mt-2">Recharge Card Generator</p>
+
+      <div
+        class="w-full bg-blue-500 mt-4 h-40 gap-1 flex items-center justify-center">
+        <span class="text-white ms-10 md:ms-0 font-semibold"
+          >Select Network</span
+        >
+        <span>
+          <select name="network" id="network">
+            <option value=""></option>
+            <option value="AIRTEL">Airtel</option>
+            <option value="MTN">Mtn</option>
+            <option value="GLO">Glo</option>
+            <option value="ETISALAT">Etisalat</option>
+          </select>
+        </span>
+
+        <span class="text-white ms-8 font-semibold">Enter Pin: </span>
+        <input type="text" id="pin" placeholder="Enter pin" class="p-2" />
+        <button onclick="recharge()" id="Recharge" class="bg-green-500 text-white p-2 me-10 md:me-0">Recharge</button>
+      </div>
+      <!-- end of the first div -->
+
+      <!-- beginning of the second div -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-[150px] h-16 flex items-center justify-center">
+        <label for="amount" class="text-white me-3 font-semibold">Amount:</label>
+        <select name="amount" id="amount" class="p-2">
+          <option value="100">₦100</option>
+          <option value="200">₦200</option>
+          <option value="500">₦500</option>
+          <option value="1000">₦1000</option>
+        </select>
+      </div>
+
+      <div
+        class="bg-blue-500 text-center flex item-center justify-center gap-2"
+      >
+        <span class="text-white font-semibold mt-4">Code: </span>
+
+        <!-- Generated random code is displayed here on clicking on the Generate button -->
+        <input
+          type="text"
+          id="codeInput"
+          placeholder="Generated code"
+          class="p-1 text-center w-1/7 my-4"
+        />
+        <button
+          onClick="generate()"
+          id="generate"
+          class="bg-green-600 text-white p-2 h-2/3 mt-3"
+        >
+          Generate
+        </button>
+        <button
+          onClick="save()"
+          id="save"
+          class="bg-green-600 text-white p-2 h-2/3 mt-3"
+        >
+          Save pin
+        </button>
+      </div>
+
+      <div class="w-full overflow-x-auto rounded-lg shadow">
+        <table class="min-w-full border border-gray-200 text-sm text-left whitespace-nowrap">
+          <thead class="bg-gray-100 text-gray-700">
+            <tr>
+              <th scope="col" class="px-4 py-3 border-b">S/N</th>
+              <th scope="col" class="px-4 py-3 border-b">Network Operator</th>
+              <th scope="col" class="px-4 py-3 border-b">Amount</th>
+              <th scope="col" class="px-4 py-3 border-b">Pin</th>
+              <th scope="col" class="px-4 py-3 border-b">Status</th>
+              <th scope="col" class="px-4 py-3 border-b">Date Created</th>
+              <th scope="col" class="px-4 py-3 border-b">Date Used</th>
+              <th scope="col" class="px-4 py-3 border-b">Action</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="bg-white text-gray-600"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script src="RechargeCard.js"></script>
+</html>
